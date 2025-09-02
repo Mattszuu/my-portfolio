@@ -16,7 +16,7 @@ const CONFIG = {
         id: 1,
         title: "Portfolio Website",
         description: "My personal portfolio built with React and TailwindCSS.",
-        images: ["/projects/my-Portfolio.png"],
+        images: ["projects/my-Portfolio.png"],
         github: "https://github.com/Mattszuu/my-portfolio",
         contribution: "UI + responsive layout, dark mode, deployment",
         tools: "React, Tailwind, Vite",
@@ -27,10 +27,10 @@ const CONFIG = {
         description:
           "A real estate web application with landlord–tenant features, property management, and an integrated billing system.",
         images: [
-          "/projects/rent-1.png",
-          "/projects/rent-2.png",
-          "/projects/rent-3.png",
-          "/projects/rent-4.png",
+          "projects/rent-1.png",
+          "projects/rent-2.png",
+          "projects/rent-3.png",
+          "projects/rent-4.png",
         ],
         github: "https://github.com/BryLim-AI/rentAlley_web",
         contribution:
@@ -55,9 +55,9 @@ const CONFIG = {
         description:
           "A subscription-based flower shop website that delivers fresh flowers weekly to customers. Features include product browsing, subscription management, and free delivery.",
         images: [
-          "/projects/flower-1.png",
-          "/projects/flower-2.png",
-          "/projects/flower-3.png",
+          "projects/flower-1.png",
+          "projects/flower-2.png",
+          "projects/flower-3.png",
         ],
         contribution:
           "Performed thorough manual testing across the website, including functional flows, usability, and UI/UX checks.",
@@ -68,7 +68,7 @@ const CONFIG = {
         title: "Vet System (OJT)",
         description:
           "A veterinary management system that automates business operations such as appointment booking, payment tracking, scheduling, inventory management, and customer records.",
-        images: ["/projects/pet-1.png", "/projects/pet-2.png"],
+        images: ["projects/pet-1.png", "projects/pet-2.png"],
         contribution:
           "Conducted manual testing for all system features, ensuring functionality, usability, and identifying UI/UX improvements.",
         tools: "Manual Testing",
