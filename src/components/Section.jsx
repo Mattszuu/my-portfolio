@@ -1,18 +1,28 @@
-export default function Section({ id, title, subtitle, children }) {
+export default function Section({
+  id,
+  title,
+  subtitle,
+  children,
+  className = "",
+}) {
   return (
-    <section
-      id={id}
-      className="p-6 sm:p-12 max-w-5xl mx-auto my-12 bg-white dark:bg-slate-800 rounded-xl shadow-lg"
-    >
-      <div className="text-center mb-6">
-        <h2 className="text-2xl sm:text-3xl font-bold">{title}</h2>
-        {subtitle && (
-          <p className="text-base sm:text-lg text-gray-600 dark:text-gray-300 mt-2">
-            {subtitle}
-          </p>
+    <section id={id} className={`py-20 px-4 sm:px-6 ${className}`}>
+      <div className="container mx-auto max-w-6xl">
+        {title && (
+          <div className="text-center mb-16">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">
+              {title}
+            </h2>
+            <div className="w-20 h-1 bg-gradient-to-r from-blue-600 to-emerald-600 mx-auto rounded-full"></div>
+            {subtitle && (
+              <p className="text-slate-600 dark:text-slate-400 mt-4 max-w-2xl mx-auto">
+                {subtitle}
+              </p>
+            )}
+          </div>
         )}
+        {children}
       </div>
-      {children}
     </section>
   );
 }
