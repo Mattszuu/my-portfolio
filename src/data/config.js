@@ -53,6 +53,11 @@ const CONFIG = {
       date: "Nov 2025",
     },
     {
+      title: "Foundations of Software Testing and Validation",
+      issuer: "University of Leed",
+      date: "Nov 2025",
+    },
+    {
       title: "Introduction to Software Development",
       issuer: "Amazon",
       date: "Nov 2025",
