@@ -1,42 +1,36 @@
-import { useEffect, useState } from "react";
-import Header from "./components/header";
-import Footer from "./components/footer";
-import Hero from "./components/hero";
-import Skills from "./components/Skills";
-import Projects from "./components/Projects";
-import Contact from "./components/Contact";
+import { useEffect } from "react";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
+import Hero from "./components/Hero";
 import About from "./components/About";
+import Projects from "./components/Projects";
+import Skills from "./components/Skills";
+import Contact from "./components/Contact";
 
 export default function App() {
-  const [dark, setDark] = useState(true);
-
   useEffect(() => {
-    const root = document.documentElement;
-    if (dark) root.classList.add("dark");
-    else root.classList.remove("dark");
-  }, [dark]);
+    document.documentElement.classList.add("dark");
+  }, []);
 
   const navItems = [
-    { id: "about", label: "About" },
-    { id: "projects", label: "Projects" },
-    { id: "skills", label: "Skills" },
-    { id: "contact", label: "Contact" },
+    { id: "work", label: "Work", number: "01" },
+    { id: "about", label: "About", number: "02" },
+    { id: "skills", label: "Skills", number: "03" },
+    { id: "contact", label: "Contact", number: "04" },
   ];
 
   const year = new Date().getFullYear();
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-emerald-50 dark:from-slate-950 dark:via-slate-900 dark:to-slate-950 text-slate-900 dark:text-slate-100 transition-colors duration-300">
-      <Header dark={dark} setDark={setDark} navItems={navItems} />
-
+    <div className="min-h-screen bg-[var(--bg)] text-[var(--text)]">
+      <Header navItems={navItems} />
       <main>
         <Hero />
-        <About />
         <Projects />
+        <About />
         <Skills />
         <Contact />
       </main>
-
       <Footer year={year} />
     </div>
   );
