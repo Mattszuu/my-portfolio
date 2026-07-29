@@ -153,7 +153,10 @@ const CONFIG = {
         subtitle: "Linux Monitoring Environment",
         description:
           "An end-to-end Geneos monitoring environment on a Linux VM — Gateway and Netprobe installation, configuration, and connection to the Active Console.",
-        contribution:
+        images: [
+          "ITRS.png"
+        ],
+          contribution:
           "Provisioned a CentOS/RHEL VM in VirtualBox with bridged networking, installed Geneos Gateway and Netprobe packages via the geneos CLI, configured instances and ports, resolved gaps between the internal runbook and a user-mode installation, and verified the full monitoring pipeline through the Active Console.",
         tools: "ITRS Geneos, RHEL/CentOS, VirtualBox, Linux Administration",
         year: "2026",
