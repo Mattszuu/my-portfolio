@@ -1,41 +1,17 @@
-import { motion } from "framer-motion";
+import Reveal from "./Reveal";
 
-export default function SectionHeader({ number, label, title, kicker }) {
+export default function SectionHeader({ label, title, sub }) {
   return (
-    <div className="mb-16">
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: "-100px" }}
-        transition={{ duration: 0.6 }}
-        className="flex items-center gap-4 mb-6 text-xs text-[var(--text-faint)]"
-      >
-        <span className="tracking-[0.2em]">{number}</span>
-        <div className="w-12 h-px bg-[var(--border-strong)]" />
-        <span className="tracking-[0.2em] uppercase">{label}</span>
-      </motion.div>
-
-      <motion.h2
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: "-100px" }}
-        transition={{ duration: 0.7, delay: 0.1 }}
-        className="font-serif text-4xl sm:text-5xl md:text-6xl leading-tight tracking-tight max-w-3xl"
-      >
+    <Reveal className="mb-12 md:mb-16">
+      <p className="eyebrow mb-3">{label}</p>
+      <h2 className="font-display text-3xl md:text-5xl font-bold leading-tight max-w-2xl">
         {title}
-      </motion.h2>
-
-      {kicker && (
-        <motion.p
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.7, delay: 0.3 }}
-          className="text-[var(--text-muted)] mt-6 max-w-xl"
-        >
-          {kicker}
-        </motion.p>
+      </h2>
+      {sub && (
+        <p className="mt-4 max-w-xl text-[15px] leading-relaxed" style={{ color: "var(--text-muted)" }}>
+          {sub}
+        </p>
       )}
-    </div>
+    </Reveal>
   );
 }

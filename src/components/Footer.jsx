@@ -1,15 +1,17 @@
-export default function Footer({ year }) {
+import CONFIG from "../data/config";
+
+export default function Footer() {
+  const year = new Date().getFullYear();
   return (
-    <footer className="px-6 sm:px-10 py-8 border-t border-[var(--border)] max-w-7xl mx-auto">
-      <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 text-xs text-[var(--text-faint)]">
-        <p>© {year} Christian Matthew Untalan</p>
-        <p>Built with React, Tailwind & Framer Motion</p>
-        <a
-          href="#hero"
-          className="hover:text-[var(--accent)] transition-colors self-start md:self-auto"
-        >
-          Back to top ↑
-        </a>
+    <footer className="px-6 sm:px-10 py-8" style={{ borderTop: "1px solid var(--border)" }}>
+      <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-3">
+        <p className="font-mono text-xs" style={{ color: "var(--text-faint)" }}>
+          © {year} {CONFIG.name}
+        </p>
+        <p className="font-mono text-xs flex items-center gap-2" style={{ color: "var(--text-faint)" }}>
+          <span className="status-dot" style={{ width: 6, height: 6 }} />
+          all systems operational
+        </p>
       </div>
     </footer>
   );

@@ -1,34 +1,64 @@
 const CONFIG = {
   name: "Christian Matthew Untalan",
-  title: "Frontend Developer & QA Analyst",
-  tagline: "Frontend developer and QA analyst from Manila",
+  title: "Junior Systems Engineer",
+  tagline:
+    "Junior Systems Engineer at Solvento Philippines — cloud infrastructure, Linux, and monitoring — with a frontend developer's eye for how systems should feel.",
   email: "Mattuntalan2@gmail.com",
   phone: "09199928818",
   location: "Manila, Philippines",
+  company: "Solvento Philippines, Inc.",
+  startDate: "2026-07-20",
   description:
-    "Information Systems graduate with experience building UpKyp — a property management SaaS for Filipino landlords. Background in React, Next.js, manual testing, and UI/UX design.",
-  about:
-    "I'm an Information Systems graduate from De La Salle-College of Saint Benilde. I led the frontend development of UpKyp, a property management SaaS for Filipino landlords, using React, Next.js, TypeScript, and Tailwind CSS — taking the product from a school thesis to an SEC-registered startup. My background also includes a QA Analyst and UI/UX Designer internship at Chimes Consulting, where I gained hands-on experience in manual testing, bug documentation, and Figma-based design.",
+    "Junior Systems Engineer at Solvento Philippines, Inc. working across AWS, Linux (RHEL), Windows Server, and ITRS Geneos monitoring. Formerly a frontend developer who built and shipped UpKyp, a property management SaaS for Filipino landlords.",
+  about: [
+    "I'm a Junior Systems Engineer at Solvento Philippines, Inc., where I work on cloud and on-prem infrastructure — provisioning Linux (RHEL) environments, configuring ITRS Geneos monitoring, and supporting systems across AWS, Windows Server, and Active Directory.",
+    "I got here by an unusual route. I studied Information Systems at De La Salle-College of Saint Benilde, then spent two years in frontend: I built the entire frontend of UpKyp, a property management SaaS for Filipino landlords, and took it from a school thesis to an SEC-registered startup. In 2026 I completed Solvento's Technology Infrastructure Bootcamp — an intensive program covering servers and virtualization, networking, databases (Oracle 19c, SQL Server), cloud (AWS/Azure), and Linux systems administration — and was hired at the end of it.",
+    "That mix is the point. I understand infrastructure from the inside, and I understand the products that run on it — how an unmonitored server becomes a broken checkout page. I bring both halves to the work.",
+  ],
   socials: {
     github: "https://github.com/Mattszuu",
     linkedin: "https://www.linkedin.com/in/christianmatthewuntalan/",
-    Instagram: "https://www.instagram.com/mattszuu/",
+    instagram: "https://www.instagram.com/mattszuu/",
   },
 
   resumes: [
     {
-      label: "Generic Resume",
-      description: "Frontend & full-stack focus",
+      label: "Resume",
+      description: "Systems engineering & full-stack",
       file: "Christian_Untalan_Resume.pdf",
     },
     {
       label: "QA Resume",
-      description: "Quality Assurance focus",
+      description: "Quality assurance focus",
       file: "Christian_Untalan_QA_Resume.pdf",
     },
   ],
 
   workExperience: [
+    {
+      title: "Junior Systems Engineer",
+      company: "Solvento Philippines, Inc.",
+      location: "Manila, Philippines",
+      period: "Jul 2026 — Present",
+      current: true,
+      responsibilities: [
+        "Provision and administer Linux (RHEL/CentOS) virtual machines, including networking, user management, and firewall configuration",
+        "Install and configure ITRS Geneos monitoring components (Gateway and Netprobe) on Linux environments, working from and improving internal runbooks",
+        "Support infrastructure operations across AWS, Windows Server, and Active Directory environments",
+      ],
+    },
+    {
+      title: "System Engineer Trainee — Technology Infrastructure Bootcamp",
+      company: "Solvento Philippines, Inc.",
+      location: "Manila, Philippines",
+      period: "May 2026 — Jul 2026",
+      responsibilities: [
+        "Completed an intensive hands-on program covering servers and virtualization, networking, databases, cloud, and Linux systems administration (RHEL)",
+        "Hands-on labs: RHEL administration, Windows Server 2019 + Active Directory, Oracle Database 19c, SQL Server backup/recovery and security, Cisco networking (VLANs, inter-VLAN routing, EtherChannel), AWS (EC2, EBS, VPC, RDS, IAM, S3), and ITRS Geneos",
+        "Capstone: designed a full AWS migration architecture for Park Wan Ji Hospitality Group",
+        "Hired as Junior Systems Engineer upon completion",
+      ],
+    },
     {
       title: "Quality Assurance Analyst (Internship)",
       company: "Chimes Consulting",
@@ -73,6 +103,11 @@ const CONFIG = {
 
   certificates: [
     {
+      title: "Technology Infrastructure Bootcamp",
+      issuer: "Solvento Philippines, Inc.",
+      date: "Jul 2026",
+    },
+    {
       title: "Cypress UI Automation Testing for Absolute Beginners",
       issuer: "Coursera",
       date: "Nov 2025",
@@ -100,6 +135,30 @@ const CONFIG = {
   ],
 
   projects: {
+    infra: [
+      {
+        id: 21,
+        title: "AWS Migration Architecture",
+        subtitle: "Bootcamp Capstone — Park Wan Ji Hospitality Group",
+        description:
+          "A full cloud migration design for a hospitality group moving from on-premises infrastructure to AWS — covering compute, networking, storage, database, identity, and cost considerations.",
+        contribution:
+          "Designed the end-to-end target architecture: VPC and subnet layout, EC2 sizing, RDS for the database tier, S3 for storage, IAM roles and policies for least-privilege access, and a phased migration plan. Presented the design as the capstone of Solvento's Technology Infrastructure Bootcamp.",
+        tools: "AWS (EC2, VPC, RDS, S3, IAM, EBS), Architecture Design",
+        year: "2026",
+      },
+      {
+        id: 22,
+        title: "ITRS Geneos Monitoring Setup",
+        subtitle: "Linux Monitoring Environment",
+        description:
+          "An end-to-end Geneos monitoring environment on a Linux VM — Gateway and Netprobe installation, configuration, and connection to the Active Console.",
+        contribution:
+          "Provisioned a CentOS/RHEL VM in VirtualBox with bridged networking, installed Geneos Gateway and Netprobe packages via the geneos CLI, configured instances and ports, resolved gaps between the internal runbook and a user-mode installation, and verified the full monitoring pipeline through the Active Console.",
+        tools: "ITRS Geneos, RHEL/CentOS, VirtualBox, Linux Administration",
+        year: "2026",
+      },
+    ],
     dev: [
       {
         id: 1,
@@ -127,14 +186,13 @@ const CONFIG = {
         title: "Portfolio",
         subtitle: "Personal Website",
         description:
-          "My personal portfolio built with React and Tailwind CSS showcasing my projects and skills.",
+          "This site — designed and built from scratch with React, Tailwind CSS, and Framer Motion. Light and dark mode, animated ops console, and a multi-page layout.",
         images: ["projects/my-Portfolio.png"],
         github: "https://github.com/Mattszuu/my-portfolio",
-        link: "https://mattszuu.github.io/my-portfolio/",
         contribution:
-          "Designed and developed the entire portfolio website with responsive layout, dark mode support, and smooth animations. Implemented modern UI/UX principles and deployed to GitHub Pages.",
-        tools: "React, Tailwind CSS, Vite, GitHub Pages",
-        year: "2025",
+          "Designed and developed the entire site: theming system with persistent light/dark mode, scroll-triggered animations, and responsive layout. Deployed on Vercel.",
+        tools: "React, Tailwind CSS, Framer Motion, Vite, Vercel",
+        year: "2026",
       },
       {
         id: 3,
@@ -182,33 +240,45 @@ const CONFIG = {
   },
 
   skills: {
+    "Infrastructure & Cloud": [
+      "AWS (EC2, VPC, RDS, S3, IAM, EBS)",
+      "Microsoft Azure",
+      "Linux (RHEL / CentOS)",
+      "Windows Server",
+      "Active Directory",
+      "VirtualBox",
+      "Networking (VLANs, Routing)",
+    ],
+    "Monitoring & Security": [
+      "ITRS Geneos",
+      "Zero Trust Architecture",
+      "CrowdStrike",
+      "Kong Gateway",
+      "IAM / PAM Concepts",
+    ],
+    Databases: [
+      "Oracle Database 19c",
+      "Microsoft SQL Server",
+      "MySQL",
+    ],
     Frontend: [
       "React",
       "Next.js",
       "TypeScript",
       "JavaScript",
-      "HTML",
-      "CSS",
       "Tailwind CSS",
-      "Bootstrap",
+      "HTML / CSS",
     ],
-    Backend: ["Node.js", "REST APIs", "C# (Intermediate)"],
-    Mobile: ["Kotlin (Basic)", "Java (Basic)", "Android Studio (Basic)"],
-    Databases: ["MySQL", "Microsoft SQL Server"],
     "Testing & QA": [
       "Manual Testing",
-      "Functional Testing",
-      "Regression Testing",
-      "Usability Testing",
-      "Performance Testing",
+      "Functional & Regression Testing",
       "Test Case Documentation",
-      "Bug Reporting",
-      "UAT",
       "Cypress",
       "Selenium",
       "JMeter",
+      "UAT",
     ],
-    Tools: ["Git", "GitHub", "Figma", "Postman", "VS Code", "WordPress"],
+    Tools: ["Git", "GitHub", "Figma", "Postman", "VS Code", "MobaXterm"],
   },
 
   languages: [

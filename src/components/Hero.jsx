@@ -1,134 +1,92 @@
+import { useEffect, useMemo, useState } from "react";
 import { motion } from "framer-motion";
-import { ArrowDown, Github, Linkedin, Instagram } from "lucide-react";
+import { ArrowDown, ArrowUpRight } from "lucide-react";
+import { Link } from "react-router-dom";
 import CONFIG from "../data/config";
+import OpsConsole from "./OpsConsole";
+
+const container = {
+  hidden: {},
+  show: { transition: { staggerChildren: 0.09, delayChildren: 0.15 } },
+};
+const item = {
+  hidden: { opacity: 0, y: 28 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] } },
+};
 
 export default function Hero() {
   return (
-    <section
-      id="hero"
-      className="min-h-screen flex flex-col justify-center px-6 sm:px-10 pt-24 pb-12 max-w-7xl mx-auto"
-    >
-      {/* Status pill */}
-      <motion.div
-        initial={{ opacity: 0, y: 10 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-        className="inline-flex items-center gap-2 px-3 py-1.5 border border-[var(--border-strong)] rounded-full text-xs text-[var(--text-muted)] mb-12 self-start"
-      >
-        <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-        Available for opportunities
-      </motion.div>
+    <section className="relative pt-32 md:pt-40 pb-20 md:pb-28 px-6 sm:px-10 max-w-7xl mx-auto">
+      <div className="grid lg:grid-cols-[1.2fr_1fr] gap-14 items-center">
+        <motion.div variants={container} initial="hidden" animate="show">
+          <motion.div variants={item} className="flex items-center gap-2.5 mb-6">
+            <span className="status-dot" />
+            <span className="font-mono text-xs" style={{ color: "var(--text-muted)" }}>
+              Junior Systems Engineer @ {CONFIG.company}
+            </span>
+          </motion.div>
 
-      {/* Main content - asymmetric grid */}
-      <div className="grid md:grid-cols-12 gap-8 md:gap-12 items-end">
-        {/* Name - takes 7 columns */}
-        <div className="md:col-span-7">
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-xs tracking-[0.2em] uppercase text-[var(--text-faint)] mb-6"
-          >
-            {CONFIG.location}
-          </motion.p>
           <motion.h1
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-            className="font-serif text-6xl sm:text-7xl md:text-8xl leading-[0.95] tracking-tight"
+            variants={item}
+            className="font-display font-extrabold leading-[1.02] text-[2.6rem] sm:text-6xl md:text-7xl"
           >
-            Christian
+            I keep systems
             <br />
-            Matthew
+            <span style={{ color: "var(--accent)" }}>running</span> — and make
             <br />
-            <em className="text-[var(--accent)] not-italic font-serif italic">
-              Untalan.
-            </em>
+            them worth using.
           </motion.h1>
-        </div>
 
-        {/* Description - takes 5 columns */}
-        <div className="md:col-span-5 md:pb-4">
           <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.5 }}
-            className="text-base sm:text-lg text-[var(--text-muted)] leading-relaxed mb-8 max-w-md"
+            variants={item}
+            className="mt-6 max-w-xl text-base md:text-lg leading-relaxed"
+            style={{ color: "var(--text-muted)" }}
           >
-            {CONFIG.tagline}. Led the frontend build of UpKyp — a property
-            management SaaS for Filipino landlords.
+            {CONFIG.tagline}
           </motion.p>
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.7 }}
-            className="flex flex-wrap gap-3 items-center"
-          >
-            <a
-              href="#work"
-              className="inline-flex items-center gap-2 px-5 py-2.5 bg-[var(--accent)] text-[var(--bg)] text-sm font-medium rounded-full hover:bg-[var(--text)] transition-colors"
+          <motion.div variants={item} className="mt-9 flex flex-wrap items-center gap-4">
+            <Link
+              to="/projects"
+              className="group inline-flex items-center gap-2 px-5 py-3 rounded-xl text-sm font-semibold text-white transition-transform hover:-translate-y-0.5"
+              style={{ background: "var(--accent)", boxShadow: "var(--shadow)" }}
             >
-              View work
-              <ArrowDown className="w-3.5 h-3.5" />
-            </a>
+              View projects
+              <ArrowUpRight size={16} className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+            </Link>
             <a
               href="#contact"
-              className="inline-flex items-center px-5 py-2.5 text-sm text-[var(--text)] border border-[var(--border-strong)] rounded-full hover:border-[var(--accent)] hover:text-[var(--accent)] transition-colors"
+              className="inline-flex items-center gap-2 px-5 py-3 rounded-xl text-sm font-semibold transition-colors"
+              style={{ border: "1px solid var(--border-strong)" }}
             >
               Get in touch
             </a>
           </motion.div>
+        </motion.div>
 
-          {/* Socials */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.8, delay: 0.9 }}
-            className="flex gap-4 mt-8"
-          >
-            <a
-              href={CONFIG.socials.github}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-[var(--text-muted)] hover:text-[var(--accent)] transition-colors"
-              aria-label="GitHub"
-            >
-              <Github className="w-5 h-5" />
-            </a>
-            <a
-              href={CONFIG.socials.linkedin}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-[var(--text-muted)] hover:text-[var(--accent)] transition-colors"
-              aria-label="LinkedIn"
-            >
-              <Linkedin className="w-5 h-5" />
-            </a>
-            <a
-              href={CONFIG.socials.Instagram}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-[var(--text-muted)] hover:text-[var(--accent)] transition-colors"
-              aria-label="Instagram"
-            >
-              <Instagram className="w-5 h-5" />
-            </a>
-          </motion.div>
-        </div>
+        <motion.div
+          initial={{ opacity: 0, y: 32, scale: 0.97 }}
+          animate={{ opacity: 1, y: 0, scale: 1 }}
+          transition={{ duration: 0.8, delay: 0.45, ease: [0.22, 1, 0.36, 1] }}
+        >
+          <OpsConsole />
+        </motion.div>
       </div>
 
-      {/* Scroll indicator */}
-      <motion.div
+      <motion.a
+        href="#experience"
+        aria-label="Scroll to experience"
+        className="hidden md:flex absolute bottom-2 left-1/2 -translate-x-1/2 items-center gap-2 font-mono text-xs"
+        style={{ color: "var(--text-faint)" }}
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ duration: 1, delay: 1.2 }}
-        className="mt-20 flex items-center gap-4 text-xs text-[var(--text-faint)]"
+        transition={{ delay: 1.4 }}
       >
-        <span className="tracking-[0.2em]">SCROLL</span>
-        <div className="flex-1 h-px bg-[var(--border)]" />
-        <span>01 / 04</span>
-      </motion.div>
+        <motion.span animate={{ y: [0, 5, 0] }} transition={{ repeat: Infinity, duration: 1.8 }}>
+          <ArrowDown size={14} />
+        </motion.span>
+        scroll
+      </motion.a>
     </section>
   );
 }

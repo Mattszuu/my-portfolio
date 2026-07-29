@@ -1,37 +1,27 @@
+import { Routes, Route, useLocation } from "react-router-dom";
 import { useEffect } from "react";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
-import Hero from "./components/Hero";
-import About from "./components/About";
-import Projects from "./components/Projects";
-import Skills from "./components/Skills";
-import Contact from "./components/Contact";
+import Home from "./pages/Home";
+import ProjectsPage from "./pages/ProjectsPage";
 
 export default function App() {
+  const { pathname, hash } = useLocation();
+
   useEffect(() => {
-    document.documentElement.classList.add("dark");
-  }, []);
-
-  const navItems = [
-    { id: "work", label: "Work", number: "01" },
-    { id: "about", label: "About", number: "02" },
-    { id: "skills", label: "Skills", number: "03" },
-    { id: "contact", label: "Contact", number: "04" },
-  ];
-
-  const year = new Date().getFullYear();
+    if (!hash) window.scrollTo(0, 0);
+  }, [pathname, hash]);
 
   return (
-    <div className="min-h-screen bg-[var(--bg)] text-[var(--text)]">
-      <Header navItems={navItems} />
+    <div className="min-h-screen" style={{ background: "var(--bg)", color: "var(--text)" }}>
+      <Header />
       <main>
-        <Hero />
-        <Projects />
-        <About />
-        <Skills />
-        <Contact />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/projects" element={<ProjectsPage />} />
+        </Routes>
       </main>
-      <Footer year={year} />
+      <Footer />
     </div>
   );
 }
